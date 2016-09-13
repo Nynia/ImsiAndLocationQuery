@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>QueryServlet</servlet-name>
+        <servlet-class>gx.QueryServlet</servlet-class>
+    </servlet>
+    <!-- 开始 Log4j Servlet配置 -->
+    <servlet>
+        <servlet-name>Log4jInitServlet</servlet-name>
+        <servlet-class>gx.Log4jInit</servlet-class><!--log4j初始化servlet类的包路径-->
+        <init-param>
+            <param-name>log4j</param-name>
+            <param-value>WEB-INF/log4j.properties</param-value><!--log4j配置文件路径-->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!--结束 Log4j Servlet配置-->
+    <servlet-mapping>
+        <servlet-name>QueryServlet</servlet-name>
+        <url-pattern>/ImsiAndLocationQuery</url-pattern>
+    </servlet-mapping>
+</web-app>
